@@ -1,5 +1,7 @@
 # Graphics
-## three_js.html
+## three_js
 ````
-Three js example
+Three js example:
+
+https://nglthu.github.io/Graphics/three_js.html
 ````
