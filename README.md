@@ -1,4 +1,5 @@
 # Graphics
+![Printable version](https://nglthu.github.io/Graphics/)
 ## Introduction
 ###	Mesh
 
