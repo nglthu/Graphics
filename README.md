@@ -9,14 +9,15 @@ A collection of one or more polygons that formed of vertices and grouped togethe
 
 #### A simple cube has 8 vertices, and formed of six polygons:
 
-![alt text](https://github.com/nglthu/Graphics/blob/master/img/cube.png)
+<img src="https://github.com/nglthu/Graphics/blob/master/img/cube.png" width="100%" height="100%">
  
-Figure 1: A cube formed form six polygons (each polygon formed from a close loop four-lines).
+    Figure 1: A cube formed form six polygons (each polygon formed from a close loop four-lines).
+    
 #### A simple 3D triangle has 4 vertices, and formed of four polygons. 
 
-![alt text](https://github.com/nglthu/Graphics/blob/master/img/mesh.png)
+<img src="https://github.com/nglthu/Graphics/blob/master/img/mesh.png" width="100%" height="100%">
  
-Figure 2: 3D triangle form of four polygons (each polygon form from a close loop three-lines)
+      Figure 2: 3D triangle form of four polygons (each polygon form from a close loop three-lines)
 
 ###	Modelling by using graphics API (OpenGL, WebGL) :
 
