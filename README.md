@@ -20,10 +20,13 @@ Figure 2: 3D triangle form of four polygons (each polygon form from a close loop
 
 ###	Modelling by using graphics API (OpenGL, WebGL) :
 
-####	WebGL/Three.js code that defines a vertex
-####	WebGL considers these vertices to be a part of polygons such as a triangle using the faces.push method.  Produce a polygon with 3 or 4 edges, we would need to create a THREE.Face3 or THREE.Face4 respectively
-####	The collection of one or more Polygons (mesh) that formed of vertices and grouped together that coordinate position of each vertex has to be calculated.
-####	The mesh could be changed, or rotate based its size requires that the coordinate position of each vertex has to be recalculated.
+WebGL/Three.js code that defines a vertex
+
+WebGL considers these vertices to be a part of polygons such as a triangle using the faces.push method.  Produce a polygon with 3 or 4 edges, we would need to create a THREE.Face3 or THREE.Face4 respectively
+
+The collection of one or more Polygons (mesh) that formed of vertices and grouped together that coordinate position of each vertex has to be calculated.
+
+The mesh could be changed, or rotate based its size requires that the coordinate position of each vertex has to be recalculated.
 
 
 ## Implementation :
