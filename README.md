@@ -1,5 +1,5 @@
 # Graphics
-![Printable version](https://nglthu.github.io/Graphics/)
+[see printable documentation](https://nglthu.github.io/Graphics/)
 ## Introduction
 ###	Mesh
 
