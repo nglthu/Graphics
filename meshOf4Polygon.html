@@ -76,19 +76,26 @@
 			color: "#FF0000", wireframe: false, side: THREE.DoubleSide
 		});
 
-	//Define points  of four vertices    
+	// //Define points  of four vertices    
+	// var myGeometry = new THREE.Geometry();
+	// myGeometry.vertices.push(new THREE.Vector3(0, 0, 0));
+	// myGeometry.vertices.push(new THREE.Vector3(0, 10, 0));
+	// myGeometry.vertices.push(new THREE.Vector3(10, 10, 0));
+	// myGeometry.vertices.push(new THREE.Vector3(10, 0, 0));
+	// myGeometry.vertices.push(new THREE.Vector3(0, 0, 0));
+
+	// // form a face (a polygon)
+	// // 'pushing' the four points onto the face 
+
+	// myGeometry.faces.push(new THREE.Face3(0, 1, 2));
+	// myGeometry.faces.push(new THREE.Face3(0, 3, 2));
+
 	var myGeometry = new THREE.Geometry();
-	myGeometry.vertices.push(new THREE.Vector3(0, 0, 0));
-	myGeometry.vertices.push(new THREE.Vector3(0, 10, 0));
-	myGeometry.vertices.push(new THREE.Vector3(10, 10, 0));
-	myGeometry.vertices.push(new THREE.Vector3(10, 0, 0));
-	myGeometry.vertices.push(new THREE.Vector3(0, 0, 0));
-
-	// form a face (a polygon)
-	// 'pushing' the four points onto the face 
-
-	myGeometry.faces.push(new THREE.Face3(0, 1, 2));
-	myGeometry.faces.push(new THREE.Face3(0, 3, 2));
+myGeometry.vertices.push( new THREE.Vector3(5, 5, 0) ); 
+myGeometry.vertices.push( new THREE.Vector3(-5, 5, 0) ); 
+myGeometry.vertices.push( new THREE.Vector3(-5, -5, 0) );
+myGeometry.vertices.push( new THREE.Vector3(5, -5, 0) ); 
+myGeometry.faces.push( new THREE.Face4( 0, 1, 2 ) );
 
 
 	var myPolygon = new THREE.Mesh(myGeometry, sphereMaterial);
