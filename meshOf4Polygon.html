@@ -96,6 +96,7 @@ myGeometry.vertices.push( new THREE.Vector3(-5, 5, 0) );
 myGeometry.vertices.push( new THREE.Vector3(-5, -5, 0) );
 myGeometry.vertices.push( new THREE.Vector3(5, -5, 0) ); 
 myGeometry.faces.push( new THREE.Face4( 0, 1, 2 ) );
+translate(rotate(scale(myGeometry)));
 
 
 	var myPolygon = new THREE.Mesh(myGeometry, sphereMaterial);
