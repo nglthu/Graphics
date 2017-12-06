@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <script type="text/javascript" src="https://getfirebug.com/firebug-lite-debug.js"></script>
-    <meta name="description" content="Polygon Square composed of 4 vertices." />
+    <meta name="description" content="Computer Graphics - Exercise #1" />
     <meta charset="utf-8" />
     <title>Sample Three.js</title>
     <style>
@@ -13,8 +14,7 @@
         }
     </style>
     <meta charset=utf-8 />
-
-    <title>Polygon Square composed of 4 vertices.</title>
+    <title>Three.js - #1</title>
 
     <style id="jsbin-css">
     </style>
@@ -31,15 +31,12 @@
 <script src="http://uopeopleweb.com/js/math.js"></script>
 <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/Detector.js"></script>
 <script type="text/javascript">
+
     // set the scene size
-    var WIDTH = 600,
-        HEIGHT = 600;
+    var WIDTH = 500, HEIGHT = 500;
 
     // set some camera attributes
-    var VIEW_ANGLE = 45,
-        ASPECT = WIDTH / HEIGHT,
-        NEAR = 1,
-        FAR = 1000;
+    var VIEW_ANGLE = 45, ASPECT = WIDTH / HEIGHT, NEAR = 1, FAR = 1000;
 
     // get the DOM element to attach to
     var $container = $('#container');
@@ -54,7 +51,7 @@
     var clock = new THREE.Clock();
     var camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
     // the camera starts at 0,0,0 so pull it back
-    camera.position.z = 30;
+    camera.position.z = 200;
     // add the camera to the scene
     scene.add(camera)
 
@@ -63,6 +60,7 @@
     // the scene doesn't change so the lighting on the surface of the object(s) will not change either
     var cameraControls = new THREE.OrbitControls(camera, renderer.domElement);
     cameraControls.addEventListener('mousemove', renderer);
+    cameraControls.autoRotate = true;
 
     // start the renderer
     renderer.setSize(WIDTH, HEIGHT);
@@ -71,36 +69,28 @@
     $container.append(renderer.domElement);
 
 
+    // create a point light
+    var areaLight = new THREE.RectAreaLight(0xffffff, 1);
 
-    // create the material
-    var sphereMaterial = new THREE.MeshLambertMaterial({
-        color: 0xBBCC00,
-        wireframe: false,
-        side: THREE.DoubleSide
-    });
+    // add to the scene
+    scene.add(areaLight);
 
-    var myGeometry = new THREE.Geometry();
-    myGeometry.vertices.push(new THREE.Vector3(0, 10, 0));
-    myGeometry.vertices.push(new THREE.Vector3(-5, -0, 0));
-    myGeometry.vertices.push(new THREE.Vector3(5, 0, 0));
+    // create the sphere's material
+    var sphereMaterial = new THREE.MeshNormalMaterial({ color: 0xffffff });
 
-    //  form a face (a polygon)
-    // by 'pushing' the four points onto the face with the following       
+    // set up the sphere vars
+    var radius = 30, segments = 32, rings = 32;
 
-    myGeometry.faces.push(new THREE.Face3(0, 1, 2));
+    // create a new mesh with sphere geometry -
+    // we will cover the sphereMaterial next!
+    var sphere = new THREE.Mesh(
+        new THREE.SphereGeometry(radius, segments, rings),
+        sphereMaterial);
 
-    var myPolygon = new THREE.Mesh(myGeometry, sphereMaterial);
+    // add the sphere to the scene
+    scene.add(sphere);
 
-    // add the polygon to the scene
-    scene.add(myPolygon);
-
-    // add ambient lighting
-    var ambientLight = new THREE.AmbientLight(0xffbb00);
-    scene.add(ambientLight);
-
-
-
-    // Standard functions for rendering the scene.  Notice having the animate function 
+    // Standard functions for rendering the scene.  Notice how we have the animate function 
     // which submits a call to requestAnimationFrame to call animate.   This creates a loop
     // that will render the scene again whenever something within the scene changes.
     function animate() {
@@ -114,4 +104,5 @@
     }
     animate();
 </script>
+
 </html>
