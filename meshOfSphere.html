@@ -12,11 +12,14 @@
             width: 100%;
             height: 100%;
         }
+
     </style>
     <meta charset=utf-8 />
     <title>Three.js - #1</title>
 
     <style id="jsbin-css">
+
+
     </style>
 </head>
 
@@ -31,12 +34,15 @@
 <script src="http://uopeopleweb.com/js/math.js"></script>
 <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/Detector.js"></script>
 <script type="text/javascript">
-
     // set the scene size
-    var WIDTH = 500, HEIGHT = 500;
+    var WIDTH = 500,
+        HEIGHT = 500;
 
     // set some camera attributes
-    var VIEW_ANGLE = 45, ASPECT = WIDTH / HEIGHT, NEAR = 1, FAR = 1000;
+    var VIEW_ANGLE = 45,
+        ASPECT = WIDTH / HEIGHT,
+        NEAR = 1,
+        FAR = 1000;
 
     // get the DOM element to attach to
     var $container = $('#container');
@@ -76,10 +82,17 @@
     scene.add(areaLight);
 
     // create the sphere's material
-    var sphereMaterial = new THREE.MeshNormalMaterial({ color: 0xffffff });
+
+    var sphereMaterial = new THREE.MeshLambertMaterial({
+        color: "#FF0000",
+        wireframe: false,
+        side: THREE.DoubleSide
+    });
 
     // set up the sphere vars
-    var radius = 30, segments = 32, rings = 32;
+    var radius = 30,
+        segments = 32,
+        rings = 32;
 
     // create a new mesh with sphere geometry -
     // we will cover the sphereMaterial next!
@@ -103,6 +116,7 @@
         renderer.render(scene, camera);
     }
     animate();
+
 </script>
 
 </html>
