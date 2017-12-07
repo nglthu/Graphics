@@ -38,3 +38,6 @@ Mesh with sphere geometry : [Access Link of sphere](https://nglthu.github.io/Gra
 Polygon Square composed of 4 vertices: [Access Link of Square polygon](https://nglthu.github.io/Graphics/meshOf4Polygon.html)
 
 Polygon Triangle: [Access Link of Triangle Polygon](https://nglthu.github.io/Graphics/meshOf3Polygon.html)
+
+Polygon Sphere with bouncing : [Access Link of Sphere with bouncing]
+(https://nglthu.github.io/Graphics/sphere.html)
