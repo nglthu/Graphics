@@ -40,4 +40,5 @@ Polygon Square composed of 4 vertices: [Access Link of Square polygon](https://n
 Polygon Triangle: [Access Link of Triangle Polygon](https://nglthu.github.io/Graphics/meshOf3Polygon.html)
 
 Polygon Sphere with bouncing : [Access Link of Sphere with bouncing]
-(https://nglthu.github.io/Graphics/sphere.html)
+(https://nglthu.github.io/Graphics/Sphere.html)
+
