@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+footer {
+    position: absolute;
+    padding: 15px;
+    bottom: 0;
+
+}
+
+footer a {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: #212121;
+    text-decoration: underline;
+}
