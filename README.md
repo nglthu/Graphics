@@ -35,10 +35,10 @@ The mesh could be changed, or rotate based its size requires that the coordinate
 
 Mesh with sphere geometry : [Access Link of sphere](https://nglthu.github.io/Graphics/html/three_js.html)
 
-Polygon Square composed of 4 vertices: [Access Link of Square polygon](https://nglthu.github.io/Graphics/meshOf4Polygon.html)
+Polygon Square composed of 4 vertices: [Access Link of Square polygon](https://nglthu.github.io/Graphics/html/meshOf4Polygon.html)
 
 Polygon Triangle: [Access Link of Triangle Polygon](https://nglthu.github.io/Graphics/html/meshOf3Polygon.html)
 
 
-Polygon Sphere with bouncing : [Access Link of Sphere with bouncing](https://nglthu.github.io/Graphics/html/Sphere.html)
+Polygon Sphere with bouncing : [Access Link of Sphere with bouncing](https://nglthu.github.io/Graphics/html/sphere.html)
 
