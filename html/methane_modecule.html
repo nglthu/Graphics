@@ -1,0 +1,329 @@
+<head>
+    <meta name="description" content="Methane" />
+    <meta charset="utf-8" />
+    <title>Methane Molecules </title>
+
+    <!--  Create a background for the css molecule and notation-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <style>
+        #container {
+            /* background: #ffffff; */
+            width: 100%;
+            height: 100%;
+        }
+
+        .circle1 {
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            padding: 10px;
+            background-image: -moz-radial-gradient(60px 60px 45deg, circle cover, #750100 0%, #750102 100%, #750122 95%);
+            background-image: -webkit-radial-gradient(60px 60px, circle cover, #750100, #750102);
+            background-image: radial-gradient(60px 60px 45deg, circle cover, #750100 0%, #750102 100%, #750122 95%);
+
+            animation-name: spin;
+            animation-duration: 3s;
+            /* 3 seconds */
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            color: white;
+            text-align: center;
+
+
+        }
+
+        .circle2 {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            padding: 10px;
+            background-image: -moz-radial-gradient(40px 40px 45deg, circle cover, #0080ff 0%, #004080 100%, #004081 95%);
+            background-image: -webkit-radial-gradient(40px 40px, circle cover, #0080ff, #004080);
+            background-image: radial-gradient(40px 40px 45deg, circle cover, #0080ff 0%, #004080 100%, #004081 95%);
+
+            animation-name: spin;
+            animation-duration: 3s;
+            /* 3 seconds */
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            color: white;
+            font-size: 13;
+            font-weight: bold;
+            text-align: center;
+
+
+        }
+    </style>
+    <meta charset=utf-8 />
+
+</head>
+
+<body>
+    <div id="container">
+        <h2>
+            <b>Methane</b>
+       
+            
+        <b class="circle1">C</b>
+        <b class="circle2">H</b>
+        </h2>
+
+    </div>
+
+
+
+    <!-- Add JS libraries -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/85/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.5/dat.gui.min.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.17.0/math.min.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/Detector.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.5/dat.gui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TimelineMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/easing/EasePack.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/plugins/CSSPlugin.min.js"></script>
+
+
+    <script type="text/javascript">
+
+
+
+        // Define and initialize static values for camera and scene
+        var WIDTH = 600, HEIGHT = 600;
+
+        // Camera view angle, aspect width and height are being defined
+        var VIEW_ANGLE = 40, ASPECT = WIDTH / HEIGHT, NEAR = 1, FAR = 1000;
+
+
+        var $container = $('#container');
+        // create a WebGL renderer, camera, and a scene
+
+        //WebGL or Canvas Renderer
+        function webglAvailable() {
+            try {
+                var canvas = document.createElement('canvas');
+                return !!(window.WebGLRenderingContext && (
+                    canvas.getContext('webgl') ||
+                    canvas.getContext('experimental-webgl'))
+                );
+            } catch (e) {
+                return false;
+            }
+        }
+        var renderer;
+        if (webglAvailable()) {
+            renderer = new THREE.WebGLRenderer();
+        } else {
+            renderer = new THREE.CanvasRenderer();
+        }
+
+
+
+        var scene = new THREE.Scene();
+        var clock = new THREE.Clock();
+
+        var camera = new THREE.PerspectiveCamera(VIEW_ANGLE, ASPECT, NEAR, FAR);
+
+
+        // The camera position has been set and camera has been assign to the scene
+        camera.position.z = 200;
+        camera.position.y = 300;
+        camera.rotation.order = 'YXZ';
+
+        // Add camera to the scene
+        scene.add(camera)
+
+        // setup renderer parameters
+        renderer.shadowMapEnabled = true;
+        renderer.shadowMapSoft = true;
+        renderer.shadowMapType = THREE.BasicShadowMap;
+        renderer.shadowMapAutoUpdate = true;
+        renderer.shadowCameraNear = 50;
+        renderer.shadowCameraFar = 350;
+        renderer.shadowCameraFov = 160;
+
+        renderer.shadowMapBias = 0.002;
+        renderer.shadowMapDarkness = 0.5;
+        renderer.shadowMapWidth = 7000;
+        renderer.shadowMapHeight = 7000;
+
+
+        // Setting up the red sphere and rendering
+        var cameraControls = new THREE.OrbitControls(camera, renderer.domElement);
+        cameraControls.addEventListener('mousemove', renderer);
+        cameraControls.userRotate = true;
+
+        renderer.setSize(WIDTH, HEIGHT);
+        $container.append(renderer.domElement);
+        var materialCylinder = new THREE.MeshPhongMaterial({ ambient: 0xffffff, color: 0xf2f2f2, specular: 0xffffff, shininess: 100, wireframe: false });
+        var materialSphereSmall = new THREE.MeshPhongMaterial({ ambient: 0x00ffff, color: 0x0080ff, specular: 0xffffff, shininess: 60, wireframe: false });
+
+
+        var center = new THREE.SphereGeometry(20, 20, 20);
+        var materialSphereCenter = new THREE.MeshPhongMaterial({ ambient: 0xee0011, color: 0x750100, specular: 0xee0000, shininess: 50, wireframe: false });
+        centralSphere = new THREE.Mesh(center, materialSphereCenter);
+        centralSphere.position.z = 0;
+        centralSphere.position.x = 0;
+        centralSphere.position.y = 0;
+
+        scene.add(centralSphere);
+
+        var cylinder = new THREE.CylinderGeometry(5, 4, 40, 5, 5);
+        var hydrogenAtom = new THREE.SphereGeometry(10, 10, 10);
+
+        // Placing positions for the varying spheres
+        var sphere1 = new THREE.SphereGeometry(10, 10, 10);
+        meshAtoms1 = new THREE.Mesh(sphere1, materialSphereSmall);
+        meshAtoms1.position.z = 0;
+        meshAtoms1.position.x = 0;
+        meshAtoms1.position.y = 43;
+        meshAtoms1.receiveShadow = true;
+        meshAtoms1.castShadow = true;
+
+        // Atom
+        hydrogenAtom1 = new THREE.Mesh(hydrogenAtom, materialSphereSmall);
+        hydrogenAtom1.position.y = -20;
+        hydrogenAtom1.position.z = 22;
+        hydrogenAtom1.position.x = 31;
+        hydrogenAtom1.receiveShadow = true;
+        hydrogenAtom1.castShadow = true;
+
+        // Atom
+        hydrogenAtom2 = new THREE.Mesh(hydrogenAtom, materialSphereSmall);
+        hydrogenAtom2.position.y = -20;
+        hydrogenAtom2.position.z = 0;
+        hydrogenAtom2.position.x = -40;
+        hydrogenAtom2.receiveShadow = true;
+        hydrogenAtom2.castShadow = true;
+
+        // Atom
+        hydrogenAtom3 = new THREE.Mesh(hydrogenAtom, materialSphereSmall);
+        hydrogenAtom3.position.y = -20;
+        hydrogenAtom3.position.z = -45;
+        hydrogenAtom3.position.x = 0;
+        hydrogenAtom3.receiveShadow = true;
+        hydrogenAtom3.castShadow = true;
+
+        // Top cylinder
+        topCylinder = new THREE.Mesh(cylinder, materialCylinder);
+        topCylinder.position.y = 20;
+        topCylinder.overdraw = true;
+
+        // adding hydrogen cylinder 1
+        hydrogenCylinder1 = new THREE.Mesh(cylinder, materialCylinder);
+        hydrogenCylinder1.position.y = -5;
+        hydrogenCylinder1.position.x = 20;
+        hydrogenCylinder1.position.z = 14;
+        hydrogenCylinder1.rotation.z = 30 * Math.PI / 180;
+        hydrogenCylinder1.rotation.x = -30 * Math.PI / 180;
+        hydrogenCylinder1.overdraw = true;
+        hydrogenCylinder1.receiveShadow = true;
+        hydrogenCylinder1.castShadow = true;
+
+
+        // adding hydrogen cylinder 2
+        hydrogenCylinder2 = new THREE.Mesh(cylinder, materialCylinder);
+        hydrogenCylinder2.position.y = -10;
+        hydrogenCylinder2.position.x = -30;
+        hydrogenCylinder2.position.z = 0;
+        hydrogenCylinder2.rotation.y = -0;
+        hydrogenCylinder2.rotation.x = 0;
+        hydrogenCylinder2.rotation.z = -50 * Math.PI / 180;
+        hydrogenCylinder2.receiveShadow = true;
+        hydrogenCylinder2.castShadow = true;
+
+
+        // adding hydrogen cylinder 3
+        hydrogenCylinder3 = new THREE.Mesh(cylinder, materialCylinder);
+        hydrogenCylinder3.position.x = 0;
+        hydrogenCylinder3.position.y = -10;
+        hydrogenCylinder3.position.z = -30;
+        hydrogenCylinder3.rotation.y = -55;
+        hydrogenCylinder3.rotation.z = -5.3;
+        hydrogenCylinder3.receiveShadow = true;
+        hydrogenCylinder3.castShadow = true;
+
+
+        // Plane
+        var planeMaterial = new THREE.MeshBasicMaterial({ color: 0x474343, wireframe: true, side: THREE.DoubleSide });
+        var plane = new THREE.PlaneGeometry(350, 350, 10, 10);
+        planeMesh = new THREE.Mesh(plane, planeMaterial);
+        plane.overdraw = true;
+        planeMesh.position.y += -100;
+        planeMesh.rotation.x = Math.PI / 2;
+        planeMesh.receiveShadow = true;
+
+
+
+        mesh = new THREE.Object3D();
+
+        // adding the various scenes
+
+
+        mesh = new THREE.Object3D();
+        mesh.add(topCylinder);
+        mesh.add(meshAtoms1);
+        mesh.add(hydrogenAtom1);
+        mesh.add(hydrogenAtom2);
+        mesh.add(hydrogenAtom3);
+        mesh.add(hydrogenCylinder1);
+        mesh.add(hydrogenCylinder2);
+        mesh.add(hydrogenCylinder3);
+
+        scene.add(mesh);
+
+        cameraControls.center = new THREE.Vector3(mesh.position.x, mesh.position.y, mesh.position.z);
+        scene.add(planeMesh);
+
+
+        // pointlight 
+        var pointLight = new THREE.PointLight();
+        pointLight.position.set(10, 60, -40);
+        pointLight.castShadow = true;
+        pointLight.shadowBias = -0.005;
+        scene.add(pointLight);
+
+        // Directional light
+        var theLight = new THREE.DirectionalLight(0xffffff);
+        theLight.position.set(0, 10, 2).normalize();
+        theLight.target.position.set(0, 0, 0);
+        theLight.castShadow = true;
+        theLight.intensity = 1;
+        theLight.shadowDarkness = 0.5;
+        scene.add(theLight);
+
+        // Ambient light
+        var ambientLight = new THREE.AmbientLight(0x9D9D9D);
+        scene.add(ambientLight);
+
+
+
+        //add rotation
+        function animate() {
+
+            mesh.rotation.y += 0.1;
+
+            requestAnimationFrame(animate);
+            render();
+
+        }
+
+        function render() {
+
+            cameraControls.update();
+            parent = new THREE.Object3D();
+            scene.add(parent);
+            renderer.render(scene, camera);
+
+        }
+
+        animate();
+
+    </script>
+</body>
+
+</html>
