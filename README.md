@@ -22,7 +22,7 @@ A collection of one or more polygons that formed of vertices and grouped togethe
 
 #### Combination of polypons on one frame
 
-<img src="https://nglthu.github.io/Graphics/img/methane.gif">
+![Methane](https://nglthu.github.io/Graphics/img/methane.gif)
  
       Figure 3: Methane with combination of sphere, four atoms, and four cylinders
 
