@@ -20,6 +20,12 @@ A collection of one or more polygons that formed of vertices and grouped togethe
  
       Figure 2: 3D triangle form of four polygons (each polygon form from a close loop three-lines)
 
+#### Combination of polypons on one frame
+
+<img src="https://nglthu.github.io/Graphics/img/methane.gif">
+ 
+      Figure 3: Methane with combination of sphere, four atoms, and four cylinders
+
 ###	Modelling by using graphics API (OpenGL, WebGL) :
 
 WebGL/Three.js code that defines a vertex
@@ -42,3 +48,4 @@ Polygon Triangle: [Access Link of Triangle Polygon](https://nglthu.github.io/Gra
 
 Polygon Sphere with bouncing : [Access Link of Sphere with bouncing](https://nglthu.github.io/Graphics/html/sphere.html)
 
+Methane Modecule : [Access link of Methane](https://nglthu.github.io/Graphics/html/methane_modecule.html)
