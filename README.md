@@ -20,9 +20,9 @@ A collection of one or more polygons that formed of vertices and grouped togethe
  
       Figure 2: 3D triangle form of four polygons (each polygon form from a close loop three-lines)
 
-#### Combination of polypons on one frame
+#### Combination of polygons on one frame
 
-<img src="https://nglthu.github.io/Graphics/img/methane.gif" width="500" height="500" />
+<img src="https://nglthu.github.io/Graphics/img/methane.gif" width="650" height="500" />
  
       Figure 3: Methane with combination of sphere, four atoms, and four cylinders
 
